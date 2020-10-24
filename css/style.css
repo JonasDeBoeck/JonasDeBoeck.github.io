@@ -37,7 +37,7 @@ nav {
 #profielPic {
     border-radius: 50%;
     max-width: 100%;
-    width: auto;
+    width: 15%;
     height: auto;
     margin-bottom: 20px;
     align-self: center;
@@ -68,6 +68,10 @@ nav {
     grid-template-areas: "1 2 3"
                          "4 5 6";
     grid-gap: 8px;
+}
+
+#about {
+    font-size: 1.2em;
 }
 
 #projectsContainer div {
