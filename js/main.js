@@ -1,22 +1,74 @@
-window.addEventListener("load", initPage);
+const tween = KUTE.fromTo(
+    '#blob-1',
+    { path: '#blob-1' },
+    { path: '#blob-2' },
+    { repeat: 999, duration: 3000, yoyo: true }
+)
 
-function initPage () {
-    let languages = document.getElementsByClassName("languages");
-    for (let i = 0; i < languages.length; i++) {
-        languages[i].addEventListener("mouseenter", colorize);
-        languages[i].addEventListener("mouseleave", uncolorize);
+tween.start()
+
+var ctx = document.getElementById('skills-chart').getContext('2d');
+var skillsChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        datasets: [{
+            axis: 'y',
+            label: 'Skill level',
+            data: ['Advanced', 'Intermediate', 'Beginner', 'Advanced', 'Intermediate', 5],
+            fill: false,
+            backgroundColor: [
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)'
+            ],
+            borderWidth: 0,
+            barPercentage: 0.75,
+            categoryPercentage: 1,
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        scales: {
+            y: {
+                type: 'category',
+                labels: ['HTML&CSS', 'JavaScript', 'Jquery', 'Python', 'Java'],
+                beginAtZero: true,
+                ticks: {
+                    color: "#fff",
+                    font: {
+                        family: "'Bebas Neue', cursive",
+                        size: '20'
+                    }
+                },
+                grid: {
+                    display: false,
+                    drawBorder: false
+                },
+            },
+
+            x: {
+                type: 'category',
+                labels: ['Basic', 'Beginner', 'Intermediate', 'Advanced', 'Expert'],
+                beginAtZero: true,
+                ticks: {
+                    color: "#fff",
+                    font: {
+                        family: "'Bebas Neue', cursive",
+                        size: '20'
+                    }
+                },
+                grid: {
+                    display: false,
+                    drawBorder: false
+                }
+            },
+        },
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
     }
-    let social = document.getElementsByClassName("social");
-    for (let i = 0; i < social.length; i++) {
-        social[i].addEventListener("mouseenter", colorize);
-        social[i].addEventListener("mouseleave", uncolorize);
-    }
-}
-
-function colorize (evt) {
-    evt.target.style.color = "rgb(0,123,255)";
-}
-
-function uncolorize (evt) {
-    evt.target.style.color = "rgb(0,0,0)";
-}
+})
