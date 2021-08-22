@@ -1,3 +1,14 @@
+window.addEventListener('load', initPage)
+
+function initPage() {
+    Array.from(document.getElementsByTagName('a')).forEach(element => {
+        element.addEventListener('click', (event) => {
+            event.preventDefault()
+            scroll(element.innerText.toLowerCase())
+        })
+    });
+}
+
 const tween = KUTE.fromTo(
     '#blob-1',
     { path: '#blob-1' },
@@ -72,3 +83,8 @@ var skillsChart = new Chart(ctx, {
         }
     }
 })
+
+function scroll(element) {
+    var elmnt = document.getElementById(element);
+    elmnt.scrollIntoView({ block: "center", behavior: "smooth" });
+}

@@ -124,9 +124,9 @@ hr {
   flex-direction: column;
 }
 
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 
 ::-webkit-scrollbar {
   width: 10px;
